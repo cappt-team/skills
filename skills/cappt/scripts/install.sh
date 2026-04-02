@@ -76,7 +76,7 @@ else
     exit 1
 fi
 
-LATEST_TAG="$(echo "$releases_json" | grep -o '"tag_name":"v[^"]*"' | head -1 | grep -o 'v[^"]*')"
+LATEST_TAG="$(echo "$releases_json" | grep -o '"tag_name": *"v[^"]*"' | head -1 | grep -o 'v[^"]*')"
 if [[ -z "$LATEST_TAG" ]]; then
     log_error "No release found (expected tag format: v*)"
     exit 1
