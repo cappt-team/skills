@@ -1,0 +1,15 @@
+# Build output
+dist/
+
+# Go
+tools/cappt/cappt
+tools/cappt/cappt.exe
+
+# macOS
+.DS_Store
+
+# Claude Code
+.claude/settings.local.json
+
+# Misc
+archives/
