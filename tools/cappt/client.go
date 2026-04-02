@@ -125,7 +125,7 @@ func (c *Client) GeneratePresentation(outline string, includeGallery, includePre
 		"includePreview": includePreview,
 	})
 
-	req, err := c.newRequest(http.MethodPost, "/openapi/ai/chat/ppt", bytes.NewReader(payload))
+	req, err := c.newRequest(http.MethodPost, "/openapi/presentation", bytes.NewReader(payload))
 	if err != nil {
 		return nil, fmt.Errorf("failed to create request: %w", err)
 	}
