@@ -130,7 +130,7 @@ CLI 成功时将 JSON 输出到 stdout，解析后按以下格式展示：
 ```
 您的 PPT 已经生成！
 
-[在 Cappt 中打开并编辑]({edit_url})
+[在 Cappt 中打开并编辑]({editorUrl})
 
 封面预览：
 ![封面]({thumbnail})

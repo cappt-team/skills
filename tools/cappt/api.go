@@ -53,21 +53,18 @@ func parseSSEStream(body io.Reader) (map[string]any, error) {
 		case "slide_finish":
 			idx, _ := event.Data["index"].(float64)
 			finish, _ := event.Data["finish"].(float64)
-			timeCost, _ := event.Data["time_cost"].(float64)
+			timeCost, _ := event.Data["timeCost"].(float64)
 			fmt.Fprintf(os.Stderr, "[%d/%d] Slide %d done (%.1fs)\n", int(finish), total, int(idx), timeCost)
 		case "finish":
-			timeCost, _ := event.Data["time_cost"].(float64)
+			timeCost, _ := event.Data["timeCost"].(float64)
 			fmt.Fprintf(os.Stderr, "All slides done (%.1fs)\n", timeCost)
+			return event.Data, nil
 		case "fail":
 			errMsg, _ := event.Data["error"].(string)
 			if errMsg == "" {
 				errMsg = "unknown reason"
 			}
 			return nil, fmt.Errorf("generation failed: %s", errMsg)
-		}
-
-		if editURL, ok := event.Data["edit_url"].(string); ok && editURL != "" {
-			return event.Data, nil
 		}
 	}
 
